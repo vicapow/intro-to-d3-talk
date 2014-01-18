@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+<script>
+
+function Cat(){
+
+  var speed = 0;
+  var birthday = new Date('1989-01-23');
+
+  var cat = function(){
+    return "cat going " + speed + " mph. her birthday is " + birthday;
+  };
+
+  cat.speed = function(newSpeed){
+    if(arguments.length > 0){
+      speed = newSpeed;
+      return cat;
+    }else{
+      return speed;
+    }
+  };
+
+  cat.birthday = function(newBirthday){
+    if(arguments.length > 0){
+      birthday = newBirthday;
+      return cat;
+    }else{
+      return birthday;
+    }
+  };
+
+  return cat;
+}
+
+var cat1 = Cat().speed(10).birthday(new Date('2012-01-16'));
+console.log('the cat is going: ', cat1.speed() + 'mph');
+console.log('the cat was born on : ' + cat1.birthday());
+
+var cat2 = Cat().speed(18).birthday(new Date('2012-05-12'));
+console.log('the cat is going: ', cat2.speed() + 'mph');
+console.log('the cat was born on : ' + cat2.birthday());
+
+</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <style>
+      div{
+        font-size: 80px;
+      }
+    </style>
+  </head>
+  <body>
+    <script src="d3.js"></script>
+    <script>
+
+var w = window.innerWidth
+  , h = window.innerHeight
+
+var svg = d3.select('body').append('svg')
+  .style('width', w)
+  .style('height', h)
+
+svg.selectAll('circle').data(d3.range(100)).enter().append('circle')
+  .attr('r', function(d){ return d })
+  .attr('cx', function(){
+    return Math.random() * w
+  })
+  .attr('cy', function(){
+    return Math.random() * h
+  })
+  .style('fill', function(){
+    return '#'+Math.floor(Math.random()*16777215).toString(16);
+  })
+  .transition().duration(function(d){
+    return d * 20
+  })
+  .attr('cx', function(d){
+    return Math.random() * w
+  })
+  .attr('cy', function(){
+    return Math.random() * h
+  })
+
+    </script>
+  </body>
+</html>

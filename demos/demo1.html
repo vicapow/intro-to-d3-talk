@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+  </head>
+  <body>
+    <script src="d3.js"></script>
+    <script>
+
+var data = [30, 80, 32]
+
+var sel = d3.select('body').selectAll('div')
+  .data(data)
+
+sel.style('opacity', 0)
+
+sel.enter().append('div').style('opacity', 0.5)
+  .text(function(d){
+    return 'hello ' + d
+  })
+
+sel.exit().remove()
+
+
+    </script>
+  </body>
+</html>
